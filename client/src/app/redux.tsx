@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useRef } from "react";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
@@ -28,17 +27,21 @@ import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 /* REDUX PERSISTENCE */
 const createNoopStorage = () => {
   return {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     getItem(_key: any) {
       return Promise.resolve(null);
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     setItem(_key: any, value: any) {
       return Promise.resolve(value);
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     removeItem(_key: any) {
       return Promise.resolve();
     },
   };
 };
+
 
 const storage =
   typeof window === "undefined"
