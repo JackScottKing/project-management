@@ -102,7 +102,8 @@ export const api = createApi({
           const userDetails = userDetailsResponse.data as User;
 
           return { data: { user, userSub, userDetails } };
-        } catch (error: any) {
+          // Inline disable for error in the catch block
+        } catch (error: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
           return { error: error.message || "Could not fetch user data" };
         }
       },

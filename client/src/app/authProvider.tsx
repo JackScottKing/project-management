@@ -46,11 +46,11 @@ const formFields = {
   };
   
 
-const AuthProvider = ({ children }: any) => {
+const AuthProvider = ({ children }: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
   return (
     <div>
       <Authenticator formFields={formFields}>
-        {({ user }: any) =>
+        {({ user }: any) =>  
           user ? (
             <div>{children}</div>
           ) : (
