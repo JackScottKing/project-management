@@ -50,7 +50,7 @@ const AuthProvider = ({ children }: any) => { // eslint-disable-line @typescript
   return (
     <div>
       <Authenticator formFields={formFields}>
-        {({ user }: any) =>  
+        {({ user }: any) => // eslint-disable-line @typescript-eslint/no-explicit-any
           user ? (
             <div>{children}</div>
           ) : (
@@ -63,5 +63,6 @@ const AuthProvider = ({ children }: any) => { // eslint-disable-line @typescript
     </div>
   );
 };
+  
 
 export default AuthProvider;
