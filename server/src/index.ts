@@ -14,17 +14,26 @@ import teamRoutes from "./routes/teamRoutes";
 /* CONFIGURATIONS */
 dotenv.config();
 const app = express();
+
+// CORS Configuration
+const corsOptions = {
+  origin: '*', // Adjust this to your frontend domain for better security
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  allowedHeaders: ['Authorization', 'Content-Type', 'Accept', 'Origin'],
+};
+app.use(cors(corsOptions));
+
+// Other middlewares
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
 
 /* ROUTES */
 app.get("/", (req, res) => {
-  res.send("This is home route");
+  res.send("This is the home route");
 });
 
 app.use("/projects", projectRoutes);
@@ -36,5 +45,5 @@ app.use("/teams", teamRoutes);
 /* SERVER */
 const port = Number(process.env.PORT) || 3000;
 app.listen(port, "0.0.0.0", () => {
-  console.log(`Server running on part ${port}`);
+  console.log(`Server running on port ${port}`);
 });
