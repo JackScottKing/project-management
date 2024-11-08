@@ -23,6 +23,16 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+// Handle OPTIONS preflight requests globally
+app.options('*', (req, res) => {
+  res.set({
+    'Access-Control-Allow-Origin': 'https://master.d3rpe2d2b8wltm.amplifyapp.com',
+    'Access-Control-Allow-Headers': 'Authorization,Content-Type,Accept,Origin',
+    'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
+  });
+  res.status(204).send();
+});
+
 // Other middlewares
 app.use(express.json());
 app.use(helmet());

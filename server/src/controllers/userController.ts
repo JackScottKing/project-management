@@ -6,11 +6,6 @@ const prisma = new PrismaClient();
 export const getUsers = async (req: Request, res: Response): Promise<void> => {
   try {
     const users = await prisma.user.findMany();
-    res.set({
-      'Access-Control-Allow-Origin': 'https://master.d3rpe2d2b8wltm.amplifyapp.com',
-      'Access-Control-Allow-Headers': 'Authorization,Content-Type,Accept,Origin',
-      'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
-    });
     res.json(users);
   } catch (error: any) {
     res
@@ -27,13 +22,7 @@ export const getUser = async (req: Request, res: Response): Promise<void> => {
         cognitoId: cognitoId,
       },
     });
-    
-    res.set({
-      'Access-Control-Allow-Origin': 'https://master.d3rpe2d2b8wltm.amplifyapp.com',
-      'Access-Control-Allow-Headers': 'Authorization,Content-Type,Accept,Origin',
-      'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
-    });
-    
+
     res.json(user);
   } catch (error: any) {
     res
@@ -58,17 +47,10 @@ export const postUser = async (req: Request, res: Response) => {
         teamId,
       },
     });
-    
-    res.set({
-      'Access-Control-Allow-Origin': 'https://master.d3rpe2d2b8wltm.amplifyapp.com',
-      'Access-Control-Allow-Headers': 'Authorization,Content-Type,Accept,Origin',
-      'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
-    });
-    
     res.json({ message: "User Created Successfully", newUser });
   } catch (error: any) {
     res
       .status(500)
-      .json({ message: `Error creating user: ${error.message}` });
+      .json({ message: `Error retrieving users: ${error.message}` });
   }
 };
