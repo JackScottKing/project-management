@@ -7,7 +7,7 @@ export const getUsers = async (req: Request, res: Response): Promise<void> => {
   try {
     const users = await prisma.user.findMany();
     res.set({
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': 'https://master.d3rpe2d2b8wltm.amplifyapp.com',
       'Access-Control-Allow-Headers': 'Authorization,Content-Type,Accept,Origin',
       'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
     });
@@ -29,7 +29,7 @@ export const getUser = async (req: Request, res: Response): Promise<void> => {
     });
     
     res.set({
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': 'https://master.d3rpe2d2b8wltm.amplifyapp.com',
       'Access-Control-Allow-Headers': 'Authorization,Content-Type,Accept,Origin',
       'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
     });
@@ -60,7 +60,7 @@ export const postUser = async (req: Request, res: Response) => {
     });
     
     res.set({
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': 'https://master.d3rpe2d2b8wltm.amplifyapp.com',
       'Access-Control-Allow-Headers': 'Authorization,Content-Type,Accept,Origin',
       'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
     });

@@ -17,7 +17,7 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-  origin: '*', // Adjust this to your frontend domain for better security
+  origin: 'https://master.d3rpe2d2b8wltm.amplifyapp.com', // Adjust this to your frontend domain for better security
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   allowedHeaders: ['Authorization', 'Content-Type', 'Accept', 'Origin'],
 };
